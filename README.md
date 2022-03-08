@@ -1,2 +1,24 @@
-## Laracast post that include the problem which is solved by this repo.
-https://laracasts.com/discuss/channels/laravel/group-by-month-and-company-sum-count
+# auth
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
