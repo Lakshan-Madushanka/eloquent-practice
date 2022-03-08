@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use Database\Seeders\JobCardSeeder;
 use Doctrine\DBAL\Query\QueryException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;

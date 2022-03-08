@@ -4,7 +4,6 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\JobCard;
-use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +26,6 @@ class JobCardController extends Controller
             ->get();
 
         return $this->getReportMethod1($jobs);
-
     }
 
     private function getReportMethod2(Collection $jobs)
@@ -40,9 +38,9 @@ class JobCardController extends Controller
             $jobKey = $this->getJobKey($jobsArray, $formatedDate);
             if ($jobKey === -1) {
                 $newJob = [
-                    'date'                 => $formatedDate,
+                    'date' => $formatedDate,
                     'job_amount_'.$jobCode => (int)$job['amount'],
-                    'job_count_'.$jobCode  => $job['count'],
+                    'job_count_'.$jobCode => $job['count'],
 
                 ];
                 array_push($jobsArray, $newJob);
@@ -58,7 +56,7 @@ class JobCardController extends Controller
         return compact('jobsArray', 'jobCodes');
     }
 
-    private function getJobKey(array $jobsArray, string $date) : int
+    private function getJobKey(array $jobsArray, string $date): int
     {
         foreach ($jobsArray as $key => $job) {
             if ($job['date'] === $date) {
@@ -77,7 +75,7 @@ class JobCardController extends Controller
             $jobCode = $job['job_comp_code'];
             $formatedDate = Carbon::parse($job->date)->format('Y F');
             $jobsArray[$formatedDate][$job->job_comp_code] = [
-                'count'  => $job->count,
+                'count' => $job->count,
                 'amount' => (int)$job->amount,
             ];
         });
@@ -97,5 +95,4 @@ class JobCardController extends Controller
 
         return $jobCodes;
     }
-
 }

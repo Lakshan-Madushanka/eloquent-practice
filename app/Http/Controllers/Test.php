@@ -23,10 +23,11 @@ class Test extends Controller
     public function testMysqlConnection()
     {
         $faker = Container::getInstance()->make(Generator::class);
+
         try {
             DB::table('users')->insert([
-                'name'     => 'lakshan',
-                'email'    => $faker->unique()->safeEmail(),
+                'name' => 'lakshan',
+                'email' => $faker->unique()->safeEmail(),
                 'password' => Hash::make('password'),
             ]);
             echo 'Mysql connection status : succeeded !<br/><br/><hr/>';
@@ -38,10 +39,10 @@ class Test extends Controller
 
     public function testRedisConnection()
     {
-        try{
+        try {
             Redis::connection();
             echo "Redis connection status : succeeded !<br/><br/><hr/>";
-        }catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             echo 'Redis connection status : Error <br/><br/><hr/>';
             echo 'Info '.$exception->getMessage(), '<br/><br/><hr/>';
         }
